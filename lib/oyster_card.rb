@@ -7,8 +7,12 @@ class Oystercard
     end
 
     def top_up(amount)
-      fail if MAX_LIMIT < @balance + amount 
+      fail  "Maximum Limit; #{MAX_LIMIT} exceeded" if MAX_LIMIT < @balance + amount 
       @balance += amount
+    end
+
+    def deduct(amount)
+      @balance -= amount
     end
 
 end
