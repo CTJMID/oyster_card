@@ -33,4 +33,28 @@ describe Oystercard do
 
   end
 
+  describe "#in_journey?" do
+    it "gives us an update on journey status" do
+      #expect(subject.in_journey?).to eq( false )
+      expect(subject).not_to be_in_journey
+    end
+  end
+
+  describe "#touch in" do
+    it "tests the touch_in method, via checking the journey status" do
+      subject.touch_in
+      #expect(subject.in_journey?).to eq( true )
+      expect(subject).to be_in_journey
+    end
+  end
+
+  describe "#touch out" do
+    it "tests the touch_out method, via checking the journey status" do
+     subject.touch_in
+     subject.touch_out
+     #expect(subject.in_journey?).to eq( false )
+     expect(subject).not_to be_in_journey
+    end
+  end
+
 end
